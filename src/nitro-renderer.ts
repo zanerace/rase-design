@@ -7,9 +7,7 @@ function getNitroSsrService(): NitroViteServices[string] | undefined {
 
 /** Nitro forwards `/**` here. TanStack's client bundle is a virtual module, so Nitro does not splice
  *  `<!--ssr-outlet-->` for production; delegating to the SSR service fixes the empty HTML shell. */
-export default async function nitroTanStackRenderer(event: {
-  req: Request;
-}): Promise<Response> {
+export default async function nitroTanStackRenderer(event: { req: Request }): Promise<Response> {
   const ssr = getNitroSsrService();
   if (!ssr?.fetch) {
     return new Response("SSR bundle not available.", {

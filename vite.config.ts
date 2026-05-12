@@ -9,9 +9,26 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
-import { loadEnv } from "vite";
+import { nitro } from "nitro/vite";
+import { loadEnv, type Plugin } from "vite";
+
+/** Vercel sets `VERCEL=1` during CI builds — Cloudflare Worker output must be skipped there (404 otherwise). */
+const deployToVercel = process.env.VERCEL === "1";
 
 const rootDir = dirname(fileURLToPath(import.meta.url));
+
+/** Nitro SSR cannot bundle `cloudflare:workers`; resolve it to a tiny stub — runtime uses env vars instead. */
+function cloudflareWorkersVercelStub(): Plugin {
+  return {
+    name: "cloudflare-workers-vercel-stub",
+    enforce: "pre",
+    resolveId(id) {
+      if (deployToVercel && id === "cloudflare:workers") {
+        return join(rootDir, "src/server-fn/cf-worker-env-stub.ts");
+      }
+    },
+  };
+}
 
 /**
  * Miniflare often hydrates Worker secrets from `.dev.vars`, while the tooling process may not.
@@ -53,6 +70,8 @@ const viteMode = process.argv.includes("build") ? "production" : "development";
 Object.assign(process.env, loadEnv(viteMode, rootDir, ""));
 
 export default defineConfig({
+  cloudflare: deployToVercel ? false : undefined,
+  plugins: deployToVercel ? [cloudflareWorkersVercelStub(), nitro()] : [],
   tanstackStart: {
     server: { entry: "server" },
   },

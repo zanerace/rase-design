@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Race Digital — palette previews</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 2rem clamp(1rem, 4vw, 3rem);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          Segoe UI,
+          Roboto,
+          sans-serif;
+        background: #e8eaed;
+        color: #1a1a1a;
+      }
+      h1 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 0.35rem;
+      }
+      p.lead {
+        margin: 0 0 2rem;
+        max-width: 52ch;
+        line-height: 1.55;
+        color: #444;
+      }
+      .palette {
+        background: #fff;
+        border: 1px solid #cdd2d9;
+        border-radius: 8px;
+        padding: 1.25rem 1.25rem 1.5rem;
+        margin-bottom: 1.75rem;
+        box-shadow: 0 4px 20px rgb(15 39 61 / 0.06);
+      }
+      .palette h2 {
+        font-size: 1rem;
+        margin: 0 0 0.25rem;
+        font-weight: 700;
+      }
+      .palette .note {
+        font-size: 0.8125rem;
+        color: #555;
+        margin-bottom: 1rem;
+        line-height: 1.45;
+        max-width: 60ch;
+      }
+      .swatches {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+        gap: 0.65rem;
+      }
+      .chip {
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid rgb(0 0 0 / 0.12);
+      }
+      .chip .tone {
+        height: 72px;
+      }
+      .chip .meta {
+        padding: 0.5rem 0.55rem 0.55rem;
+        background: #fff;
+        border-top: 1px solid rgb(0 0 0 / 0.08);
+      }
+      .chip .label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #666;
+      }
+      .chip .hex {
+        font-family: ui-monospace, monospace;
+        font-size: 0.75rem;
+        margin-top: 0.2rem;
+        font-weight: 600;
+      }
+      .mock {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 6px;
+        font-size: 0.8125rem;
+        line-height: 1.5;
+      }
+      .mock .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+      }
+      .mock .btn-row button {
+        border: none;
+        padding: 0.45rem 0.85rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        border-radius: 4px;
+        cursor: default;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Palette previews</h1>
+    <p class="lead">
+      Open this file in any browser (<strong>Chrome / Edge</strong>). Swatches show real CSS colors —
+      easiest way to compare before changing <code>styles.css</code>.
+    </p>
+
+    <!-- 1: Current-ish (your live site baseline) -->
+    <section class="palette">
+      <h2>1 · Current baseline (cool paper + teal + mint)</h2>
+      <p class="note">What you have now: credible, slight risk of mint reading “spa” if overused.</p>
+      <div class="swatches">
+        <div class="chip">
+          <div class="tone" style="background: #f8f9fa"></div>
+          <div class="meta">
+            <div class="label">Background</div>
+            <div class="hex">#F8F9FA</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #eef1f3"></div>
+          <div class="meta">
+            <div class="label">Card / surface</div>
+            <div class="hex">#EEF1F3</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #c99a14"></div>
+          <div class="meta">
+            <div class="label">Brand</div>
+            <div class="hex">#C99A14</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #f5c542"></div>
+          <div class="meta">
+            <div class="label">Accent</div>
+            <div class="hex">#F5C542</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #1a1a1a"></div>
+          <div class="meta">
+            <div class="label">Text</div>
+            <div class="hex">#1A1A1A</div>
+          </div>
+        </div>
+      </div>
+      <div class="mock" style="background: #f8f9fa; color: #1a1a1a; border: 1px solid #c5ced3">
+        <strong style="color: #c99a14">Race Digital</strong> — Sample body copy on cool paper.
+        <div class="btn-row">
+          <button style="background: #c99a14; color: #f8f9fa">Primary</button>
+          <button style="background: transparent; color: #c99a14; outline: 1px solid #c99a14">
+            Outline
+          </button>
+          <button style="background: transparent; outline: 2px solid #f5c542">Focus ring</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: Warm paper + teal + copper -->
+    <section class="palette">
+      <h2>2 · Warm paper + teal + copper accent</h2>
+      <p class="note">Less “clinical”; copper reads hands-on trades, not SaaS mint.</p>
+      <div class="swatches">
+        <div class="chip">
+          <div class="tone" style="background: #faf9f7"></div>
+          <div class="meta">
+            <div class="label">Background</div>
+            <div class="hex">#FAF9F7</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #f1eeea"></div>
+          <div class="meta">
+            <div class="label">Surface</div>
+            <div class="hex">#F1EEEA</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #1b4f5c"></div>
+          <div class="meta">
+            <div class="label">Brand</div>
+            <div class="hex">#1B4F5C</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #b87333"></div>
+          <div class="meta">
+            <div class="label">Accent</div>
+            <div class="hex">#B87333</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #171717"></div>
+          <div class="meta">
+            <div class="label">Text</div>
+            <div class="hex">#171717</div>
+          </div>
+        </div>
+      </div>
+      <div class="mock" style="background: #faf9f7; color: #171717; border: 1px solid #d9d4cc">
+        <strong style="color: #1b4f5c">Race Digital</strong> — Warmer sheet, teal still modern.
+        <div class="btn-row">
+          <button style="background: #1b4f5c; color: #faf9f7">Primary</button>
+          <button style="background: transparent; color: #1b4f5c; outline: 1px solid #1b4f5c">
+            Outline
+          </button>
+          <button style="background: transparent; outline: 2px solid #b87333">Focus / link</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3: Monochrome blue-gray -->
+    <section class="palette">
+      <h2>3 · Monotone (blue-gray spine, barely any accent)</h2>
+      <p class="note">Quiet / premium—accent is mostly darker/lighter siblings of one hue.</p>
+      <div class="swatches">
+        <div class="chip">
+          <div class="tone" style="background: #fafafa"></div>
+          <div class="meta">
+            <div class="label">Background</div>
+            <div class="hex">#FAFAFA</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #ebedef"></div>
+          <div class="meta">
+            <div class="label">Surface</div>
+            <div class="hex">#EBEDEF</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #3d5660"></div>
+          <div class="meta">
+            <div class="label">Brand</div>
+            <div class="hex">#3D5660</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #5f7d8a"></div>
+          <div class="meta">
+            <div class="label">Accent (muted)</div>
+            <div class="hex">#5F7D8A</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #111111"></div>
+          <div class="meta">
+            <div class="label">Text</div>
+            <div class="hex">#111111</div>
+          </div>
+        </div>
+      </div>
+      <div class="mock" style="background: #fafafa; color: #111; border: 1px solid #c5cdd2">
+        <strong style="color: #3d5660">Race Digital</strong> — No green, no novelty—just structure.
+        <div class="btn-row">
+          <button style="background: #3d5660; color: #fafafa">Primary</button>
+          <button style="background: transparent; color: #3d5660; outline: 1px solid #3d5660">
+            Outline
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4: Production — light teal + mint (live site) -->
+    <section class="palette">
+      <h2>4 · Teal + mint — <em>live system</em></h2>
+      <p class="note">
+        Page <strong>#F8F9FA</strong>, text <strong>#1A1A1A</strong>, brand <strong>#C99A14</strong>, accent
+        <strong>#F5C542</strong>. Supporting: border <code>rgba(8,76,97,0.16)</code>, soft teal and mint
+        backgrounds per CSS variables — no warm accent colors.
+      </p>
+      <div class="swatches">
+        <div class="chip">
+          <div class="tone" style="background: #f8f9fa"></div>
+          <div class="meta">
+            <div class="label">Page</div>
+            <div class="hex">#F8F9FA</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #ffffff"></div>
+          <div class="meta">
+            <div class="label">Cards</div>
+            <div class="hex">#FFFFFF</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #c99a14"></div>
+          <div class="meta">
+            <div class="label">Brand teal</div>
+            <div class="hex">#C99A14</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #f5c542"></div>
+          <div class="meta">
+            <div class="label">Accent mint</div>
+            <div class="hex">#F5C542</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #1a1a1a"></div>
+          <div class="meta">
+            <div class="label">Body text</div>
+            <div class="hex">#1A1A1A</div>
+          </div>
+        </div>
+      </div>
+      <div class="mock" style="background: #f8f9fa; color: #1a1a1a; border: 1px solid rgba(8, 76, 97, 0.16)">
+        <strong style="color: #c99a14">Race Digital</strong> — light field, mint primary, teal outline.
+        <div class="btn-row">
+          <button style="background: #f5c542; color: #1a1a1a; border: 1px solid rgba(8, 76, 97, 0.16)">
+            Primary
+          </button>
+          <button style="background: transparent; color: #c99a14; outline: 1px solid #c99a14">Outline</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5: Forest -->
+    <section class="palette">
+      <h2>5 · Forest + cream (+ mint accent)</h2>
+      <p class="note">Organic “local” vibe—risk: boutique granola if paired with curly type (you’re sans, so safer).</p>
+      <div class="swatches">
+        <div class="chip">
+          <div class="tone" style="background: #f7f5f0"></div>
+          <div class="meta">
+            <div class="label">Background</div>
+            <div class="hex">#F7F5F0</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #eae6de"></div>
+          <div class="meta">
+            <div class="label">Surface</div>
+            <div class="hex">#EAE6DE</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #274236"></div>
+          <div class="meta">
+            <div class="label">Brand</div>
+            <div class="hex">#274236</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #f5c542"></div>
+          <div class="meta">
+            <div class="label">Accent (mint)</div>
+            <div class="hex">#F5C542</div>
+          </div>
+        </div>
+        <div class="chip">
+          <div class="tone" style="background: #1f1e1c"></div>
+          <div class="meta">
+            <div class="label">Text</div>
+            <div class="hex">#1F1E1C</div>
+          </div>
+        </div>
+      </div>
+      <div class="mock" style="background: #f7f5f0; color: #1f1e1c; border: 1px solid #d2cdc3">
+        <strong style="color: #274236">Race Digital</strong> — Rooted, tactile, needs restraint.
+        <div class="btn-row">
+          <button style="background: #274236; color: #f7f5f0">Primary</button>
+          <button style="background: transparent; color: #274236; outline: 1px solid #274236">
+            Outline
+          </button>
+          <button style="background: transparent; outline: 2px solid #f5c542">Mint accent hit</button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

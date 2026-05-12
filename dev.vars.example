@@ -1,0 +1,13 @@
+# Local email (Resend): copy this file to `.dev.vars` in the project root — it is gitignored.
+# Running `npm install` creates `.dev.vars` automatically once; then paste your real API key.
+# Get a key at https://resend.com/api-keys — free tier can send from onboarding@resend.dev.
+# Restart `npm run dev` after editing.
+#
+# Production (Cloudflare Workers): set the same variable with:
+#   npx wrangler secret put RESEND_API_KEY
+
+# Replace this with your real API key:
+RESEND_API_KEY=re_your_real_key_here
+
+# Quote values that contain spaces or angle brackets (must match a sender Resend accepts):
+CONTACT_MAIL_FROM="Race Digital <onboarding@resend.dev>"

@@ -71,7 +71,16 @@ Object.assign(process.env, loadEnv(viteMode, rootDir, ""));
 
 export default defineConfig({
   cloudflare: deployToVercel ? false : undefined,
-  plugins: deployToVercel ? [cloudflareWorkersVercelStub(), nitro()] : [],
+  plugins: deployToVercel
+    ? [
+        cloudflareWorkersVercelStub(),
+        nitro({
+          renderer: {
+            handler: join(rootDir, "src/nitro-renderer.ts"),
+          },
+        }),
+      ]
+    : [],
   tanstackStart: {
     server: { entry: "server" },
   },
